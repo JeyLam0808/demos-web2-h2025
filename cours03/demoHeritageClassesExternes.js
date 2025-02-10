@@ -15,36 +15,9 @@ Notions importantes
 
 */
 
-// Définition d'une classe parent
-class Animal {
-    constructor(nom="N/D") {
-        this.nom = nom;
-    }
-    
-    faireDuBruit() {
-        console.log("Un bruit d'animal");
-    }
-    
-    decrire() {
-        return `Cet animal s'appelle ${this.nom}.`;
-    }
-}
-
-// Définition d'une classe enfant qui hérite de Animal
-class Chien extends Animal {
-    constructor(nom, race) {
-        super(nom); // Appelle le constructeur de la classe parent
-        this.race = race;
-    }
-    
-    faireDuBruit() { // cette méthode a été REDÉFINIE (overridden)
-        console.log("Wouf! Wouf!");
-    }
-    
-    decrire() {
-        return super.decrire() + ` C'est un chien de race ${this.race}.`; // utiliser l'héritage dans la redéfinition de cette méthode
-    }
-}
+// importation des classes (essayons que la classe Chien, qui elle-même importe Animal)
+import Animal from "./classes/Animal.js";
+import { Chien } from "./classes/Chien.js";
 
 // Utilisation des classes
 const unAnimal = new Animal("Popcorn");
@@ -55,3 +28,13 @@ unAnimal.faireDuBruit(); // Un bruit d'animal
 monChien.faireDuBruit(); // Wouf! Wouf!
 console.log(monChien.decrire()); // Cet animal s'appelle Rex. C'est un chien de race Labrador.
 console.log(unAnimal.decrire()); // Cet animal s'appelle Popcorn.
+
+// Appartenance des objets
+console.log(unAnimal instanceof Object); // true, donc unAnimal EST UN Object
+console.log(unAnimal instanceof Animal); // true, donc unAnimal EST UN Animal
+console.log(unAnimal instanceof Chien); // false, donc unAnimal N'EST PAS UN Chien
+console.log(monChien instanceof Object); // true, donc monChien EST UN Object
+console.log(monChien instanceof Animal); // true, donc monChien EST UN Animal
+console.log(monChien instanceof Chien); // true, donc monChien EST UN Chien
+console.log(typeof unAnimal);
+console.log(typeof monChien); // peu importe la classe effective de l'objet, il est vu comme étant de type 'object'

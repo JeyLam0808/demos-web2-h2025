@@ -11,7 +11,7 @@ Références utiles
 
 // Reprenons notre modèle de personne pour en faire une classe.
 class Personne {
-    constructor(nom ="John Doe", age=0) {
+    constructor(nom="inconnu", age=0) {
         this.nom = nom;
         this.age = age;
     }
@@ -23,18 +23,23 @@ class Personne {
 
 // Créer un objet de la classe
 const personne1 = new Personne("Bob", 57);
-console.log("personne1 est un Object", personne1 instanceof Object);
-console.log("personne1 est une Object", personne1 instanceof Personne);
-console.log("typeof personne1 =", typeof personne1);
-personne1.afficherDetails();
+console.log("personne1 est un Object", personne1 instanceof Object); // true
+console.log("personne1 est une Personne", personne1 instanceof Personne); // true
+console.log("typeof personne1 =", typeof personne1); // 'object' (tous les objets donnent ceci, peu importe la classe)
+//const personne1 = new Personne("Maxime", 44);
 
 // Appeler la méthode afficherDetails()
-personne1.afficherDetails
+personne1.afficherDetails();
 
 // Modifier et afficher le nom avec la notation .
 personne1.nom = "Ginette";
-console.log("personne1.nom = ", personne1.nom);
+personne1.afficherDetails();
 
 // Modifier l'âge et l'afficher avec la notation []
-personne1["age"] = 47;
+personne1['age'] = 47;
 personne1.afficherDetails();
+
+// Modifier l'âge et l'afficher avec la notation []
+personne1['age'] = 45;
+personne1.afficherDetails();
+

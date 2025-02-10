@@ -9,10 +9,4 @@ class Personne {
     }
 }
 
-class Bidon{
-    constructor(nom = "Aucun"){
-        this.nom = nom;
-    }
-}
-
-export {Personne, Bidon, afficherDetails};
+export {Personne};
